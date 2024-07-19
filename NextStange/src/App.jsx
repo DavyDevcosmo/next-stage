@@ -6,7 +6,8 @@ import { UpdateProfile } from "./pages/UpdateProfile";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { ProtectedRoute } from "./components/PrivateRouter";
 import { SignUp } from "./pages/SignUp";
-import { Login } from "./pages/Login";
+import { Login } from "./pages/Login"
+
 
 
 export default function App() {
