@@ -1,0 +1,36 @@
+my-game-library/
+├── public/
+│   ├── favicon.ico
+│   └── index.html
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   └── styles/
+│   │       ├── global.css
+│   │       └── variables.css
+│   ├── components/
+│   │   ├── Carrousel.jsx
+│   │   ├── GameCard.jsx
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   └── Navbar.jsx
+│   ├── pages/
+│   │   ├── HomePage.jsx
+│   │   ├── RegisterPage.jsx
+│   │   ├── LoginPage.jsx
+│   │   ├── GameDetailsPage.jsx
+│   │   └── ProfilePage.jsx
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   ├── hooks/
+│   │   └── useAuth.js
+│   ├── services/
+│   │   ├── api.js
+│   │   └── authService.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── routes.jsx
+├── .gitignore
+├── package.json
+├── README.md
+└── vite.config.js
