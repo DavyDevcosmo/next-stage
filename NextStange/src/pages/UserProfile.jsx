@@ -1,9 +1,13 @@
 import { useNavigate, Link } from "react-router-dom"
+
+//import { useState } from "react"
 import { useAuth } from "../context/authContext"
 
 
 export const UseProfile = () => {
-    const {currentUser, logOut} = useAuth()
+    const {currentUser, logOut} = useAuth();
+    
+   
     const navigate = useNavigate()
 
     async function handleLogout() {
@@ -18,7 +22,7 @@ export const UseProfile = () => {
     
     return(
         <div className="conteiner">
-            <h1>Perfil do Usuario</h1>
+            <h1>Configurações da conta</h1>
 
             <button onClick={handleLogout}>Sair</button>
 
@@ -28,13 +32,15 @@ export const UseProfile = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>Email</th>
+                        <th>Email</th> 
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>{currentUser.email}</td>
+                            
+                        
                         <td>
                             <Link to="/update-profile">Atualizar perfil de usuario</Link>
                         </td>

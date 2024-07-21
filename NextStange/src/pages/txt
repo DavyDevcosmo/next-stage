@@ -1,4 +1,4 @@
-my-game-library/
+NextStage/
 ├── public/
 │   ├── favicon.ico
 │   └── index.html
@@ -6,20 +6,31 @@ my-game-library/
 │   ├── assets/
 │   │   ├── images/
 │   │   └── styles/
-│   │       ├── global.css
-│   │       └── variables.css
+│   │       ├── global.scss
+│   │       ├── variables.scss
+│   │       └── mixins.scss
 │   ├── components/
 │   │   ├── Carrousel.jsx
+│   │   ├── Carrousel.scss
 │   │   ├── GameCard.jsx
+│   │   ├── GameCard.scss
 │   │   ├── Header.jsx
+│   │   ├── Header.scss
 │   │   ├── Footer.jsx
+│   │   ├── Footer.scss
 │   │   └── Navbar.jsx
+│   │       └── Navbar.scss
 │   ├── pages/
 │   │   ├── HomePage.jsx
+│   │   ├── HomePage.scss
 │   │   ├── RegisterPage.jsx
+│   │   ├── RegisterPage.scss
 │   │   ├── LoginPage.jsx
+│   │   ├── LoginPage.scss
 │   │   ├── GameDetailsPage.jsx
+│   │   ├── GameDetailsPage.scss
 │   │   └── ProfilePage.jsx
+│   │       └── ProfilePage.scss
 │   ├── context/
 │   │   └── AuthContext.jsx
 │   ├── hooks/
@@ -28,6 +39,7 @@ my-game-library/
 │   │   ├── api.js
 │   │   └── authService.js
 │   ├── App.jsx
+│   ├── App.scss
 │   ├── main.jsx
 │   └── routes.jsx
 ├── .gitignore

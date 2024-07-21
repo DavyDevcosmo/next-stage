@@ -1,14 +1,16 @@
+
+
 import {  useState } from "react"
 import { useAuth } from "../context/authContext"
 import { Link } from "react-router-dom";
-import { auth } from "../firebase";
+
 
 export const SignUp = () => {
     const {signUp} = useAuth();
     const [email,setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [comfirmPassword,setComfirmPassword] = useState("");
-    const [userName, setUserName] = useState("")
+   
     const [loading, setLoading] = useState(false)
 
     async function handleSubmit(element) {
@@ -26,11 +28,7 @@ export const SignUp = () => {
             setLoading(false)
             return
         }
-        if (userName === auth) {
-            alert("username em uso")
-            setLoading(false)
-            return
-        }
+        
        
         try {
             await signUp(email, password)
@@ -53,10 +51,7 @@ export const SignUp = () => {
                 onChange={(element) => setEmail(element.target.value)}
                 />
 
-                <label htmlFor="text">Nome</label>
-                <input type="text" 
-                value={userName} 
-                onChange={(element) => setUserName(element.target.value)}/>
+                
 
                 <label htmlFor="password">Senha</label>
                 <input 
