@@ -1,66 +1,29 @@
-import { Link } from 'react-router-dom';
-//import logo from '../assets/Logo_NextStage.png';
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { FaHeart, FaUser } from 'react-icons/fa';
 
-const SearchBar = ({ handleSubmit, handleChange, searchTerm }) => {
+import { Logo } from './logo';
+import HeartIcon from './HeartIcon';
+
+
+import UserIcon from './Avatar';
+import { NavBar } from './NavBar';
+import SearchForm from './SearchBar';
+
+const Header = () => {
     return (
-        <form onSubmit={handleSubmit} className="search-bar">
-            <input
-                type="text"
-                placeholder="Pesquisar..."
-                value={searchTerm}
-                onChange={handleChange}
-                aria-label="Campo de pesquisa"
-            />
+        <header className='
+        px-4 h-16
+        flex items-center justify-between
+        gap-6
+        bg-NavBar
+        '>
+            <Logo/>
+
+            <NavBar/>
             
-        </form>
+            < SearchForm/>
+            <HeartIcon/>
+            <UserIcon/>
+        </header>
     );
 };
 
-// Adicionando validação de props com PropTypes
-SearchBar.propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
-    handleChange: PropTypes.func.isRequired,
-    searchTerm: PropTypes.string.isRequired,
-};
-
-export const Header = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Pesquisa realizada:', searchTerm);
-        // Aqui você pode adicionar a lógica para realizar a pesquisa
-        // Por exemplo, fazer uma chamada para uma API ou atualizar o estado
-    };
-
-    return (
-        <section>
-            
-            <nav className="navigate-brand">
-                <Link to="/home">Home</Link>
-                <Link to="/games">Games</Link>
-            </nav>
-
-            <SearchBar
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-                searchTerm={searchTerm}
-            />
-
-<button className="heart-button">
-            <FaHeart />
-        </button>
-
-        <button className="user-button">
-            <FaUser />
-        </button>
-        </section>
-    );
-};
+export default Header;

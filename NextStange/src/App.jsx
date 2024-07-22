@@ -1,14 +1,15 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
-import { UseProfile } from "./pages/UserProfile";
-import { UpdateProfile } from "./pages/UpdateProfile";
+import  UserProfile  from "./pages/UserProfile";
+import  UpdateProfile  from "./pages/UpdateProfile";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { ProtectedRoute } from "./components/PrivateRouter";
-import { SignUp } from "./pages/SignUp";
-import { Login } from "./pages/Login"
+
+import { Login } from "./pages/Login"   
 import { Home } from "./pages/Home";
 import { Games } from "./pages/Games";
+import SignUp from "./pages/SignUp";
 
 
 
@@ -26,7 +27,7 @@ export default function App() {
             path="/userProfile"
             element={
               <ProtectedRoute>
-                <UseProfile />
+                <UserProfile />
               </ProtectedRoute>}>
           </Route>
 

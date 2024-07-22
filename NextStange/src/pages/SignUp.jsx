@@ -5,7 +5,7 @@ import { useAuth } from "../context/authContext"
 import { Link } from "react-router-dom";
 
 
-export const SignUp = () => {
+ const SignUp = () => {
     const {signUp} = useAuth();
     const [email,setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -79,3 +79,4 @@ export const SignUp = () => {
         </div>
     )
 }
+export default SignUp
