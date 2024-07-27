@@ -31,6 +31,11 @@ export const NavBar = () => (
         >
             THE GAME AWARDS
         </Link>
+        <Link to="/home" className="text-black relative px-2 py- border-b-2 border-transparent
+                hover:text-blue-700 hover:border-gray-300 
+                before:absolute before:left-0 before:bottom-0 before:w-full before:h-[2px] 
+                before:bg-transparent before:shadow-lg before:shadow-transparent 
+                transform hover:scale-105 transition-all duration-300" >VOLTAR</Link>
 
     </nav>
 );

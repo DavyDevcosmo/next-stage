@@ -1,15 +1,15 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
-import  UserProfile  from "./pages/UserProfile";
-import  UpdateProfile  from "./pages/UpdateProfile";
+
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { ProtectedRoute } from "./components/PrivateRouter";
-
 import { Login } from "./pages/Login"   
 import { Home } from "./pages/Home";
 import { Games } from "./pages/Games";
 import SignUp from "./pages/SignUp";
+import  UpdateProfile  from "./pages/UpdateProfile";
+import UserProfile from "./pages/UserProfile";
 
 
 
@@ -18,7 +18,7 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />}> </Route>
+          <Route path="/Authlogin" element={<Login />}> </Route>
           <Route path="/" element={<SignUp />}> </Route>
           <Route path="/home" element={<Home />}> </Route>
           <Route path="/games" element={<Games />}> </Route>

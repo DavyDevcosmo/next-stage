@@ -1,7 +1,7 @@
-import logo from '../assets/Logo_NextStage.png';
+import LogoNext from "../assets/Logo.png"
 
 export const Logo = () => {
     return(
-        <img src={logo} alt="logo NextStage"  className="h-12 w-auto" />
+        <img src={LogoNext} alt="logo NextStage"  className="h-12 w-auto " />
     )
 } 

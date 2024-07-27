@@ -5,7 +5,7 @@ import {
     signOut,
     updateEmail,
     sendPasswordResetEmail
-    } from "firebase/auth";
+} from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types'; 
 import { auth } from "../firebase";
@@ -24,7 +24,15 @@ export function AuthProvider({ children }) {
    }
 
    function signUp(email, password) {
-       return createUserWithEmailAndPassword(auth, email, password);
+       return createUserWithEmailAndPassword(auth, email, password)
+           .then(userCredential => {
+               // Account creation successful
+               return userCredential.user;
+           })
+           .catch(error => {
+               // Handle errors here
+               throw new Error(error.message);
+           });
    }
 
    function signIn(email, password) {
@@ -32,11 +40,14 @@ export function AuthProvider({ children }) {
    }
 
    function resetPassword(email) {
-    return sendPasswordResetEmail(auth, email)
+       return sendPasswordResetEmail(auth, email);
    }
 
-   function updateEmailAddress(newEmail){
-    return updateEmail(currentUser, newEmail)
+   function updateEmailAddress(newEmail) {
+       if (!currentUser) {
+           throw new Error('No user is currently signed in.');
+       }
+       return updateEmail(currentUser, newEmail);
    }
    
    useEffect(() =>  {
@@ -61,7 +72,6 @@ export function AuthProvider({ children }) {
        </AuthContext.Provider>
    );
 }
-
 
 AuthProvider.propTypes = {
    children: PropTypes.node.isRequired,

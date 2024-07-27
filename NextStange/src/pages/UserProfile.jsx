@@ -1,9 +1,14 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate} from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import UpdateProfile from "./UpdateProfile"; // Importar o componente do modal
+import { FaArrowLeft, FaUserEdit } from "react-icons/fa";
+
 
 const UserProfile = () => {
-    const {  logOut } = useAuth();
+    const { logOut } = useAuth();
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
 
     async function handleLogout() {
         try {
@@ -15,9 +20,30 @@ const UserProfile = () => {
         }
     }
 
+    function openModal() {
+        setIsModalOpen(true);
+    }
+
+    function closeModal() {
+        setIsModalOpen(false);
+    }
+
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-3xl font-light text-gray-700">Configurações da conta</h1>
+        <div className="container mx-auto p-4 hover:text-blue-50 transition-colors duration-300">
+            <Link 
+                to="/home" 
+                className="text-black relative px-2 py- border-b-2 border-transparent
+                           hover:text-blue-700 
+                           before:absolute before:left-0 before:bottom-0 before:w-full before:h-[2px] 
+                           before:bg-transparent before:shadow-lg before:shadow-transparent 
+                           transform hover:scale-110 transition-transform duration-300" 
+            >
+                <FaArrowLeft className="inline-block mr-2" /> VOLTAR
+            </Link>
+        
+
+            
+            <h1 className="text-3xl font-light text-gray-700 mt-4">Configurações da conta</h1>
             <p className="text-xl font-light text-gray-400 mt-2 mb-6">
                 Gerencie os detalhes da sua conta.
             </p>
@@ -60,16 +86,29 @@ const UserProfile = () => {
                     />
                 </div>
                 <div className="flex justify-between items-center">
-                    <Link to="/update-profile" className="bg-blue-500 text-white py-2 px-4 rounded-3xl hover:bg-blue-700 transition-colors duration-300">
-                        <svg className="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536M9 13h3v3m-2.293-5.293a1 1 0 011.414 0l6.586 6.586a1 1 0 010 1.414l-3.172 3.172a1 1 0 01-1.414 0L6.343 14.343a1 1 0 010-1.414l2.293-2.293z"></path></svg>
+                    <button onClick={openModal}  className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300  flex items-center justify-center">
+                    <FaUserEdit 
+                className="text-zinc-100 transition-transform duration-300 transform hover:scale-105  h-4 "
+                size={48}
+            />
                         Atualizar perfil
-                    </Link>
-                    <button onClick={handleLogout} className="bg-red-500 text-white py-2 px-4  rounded-3xl hover:bg-red-700 transition-colors duration-300">
+                    </button>
+                    <button onClick={handleLogout} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors duration-300">
                         <svg className="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                        Deletar conta
+                        Excluir conta
                     </button>
                 </div>
             </div>
+
+            {/* Modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+                        <UpdateProfile closeModal={closeModal} />
+                        <button onClick={closeModal} className="mt-4 bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-700 transition-colors duration-300">Fechar</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
