@@ -31,7 +31,7 @@ const UserProfile = () => {
     return (
         <div className="container mx-auto p-4 hover:text-blue-50 transition-colors duration-300">
             <Link 
-                to="/home" 
+                to="/auth/home" 
                 className="text-black relative px-2 py- border-b-2 border-transparent
                            hover:text-blue-700 
                            before:absolute before:left-0 before:bottom-0 before:w-full before:h-[2px] 

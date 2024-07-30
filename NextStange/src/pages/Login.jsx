@@ -127,7 +127,7 @@ export const Login = () => {
                             Esqueceu a senha? <Link to="/forgot-password" className="text-indigo-600 hover:text-indigo-500">Resetar senha</Link>
                         </p>
                         <p className="text-sm text-gray-600 mt-2">
-                            Criar nova conta? <Link to="/" className="text-indigo-600 hover:text-indigo-500">Cadastre-se</Link>
+                            Criar nova conta? <Link to="/auth/register" className="text-indigo-600 hover:text-indigo-500">Cadastre-se</Link>
                         </p>
                     </div>
                 </div>

@@ -18,9 +18,9 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/Authlogin" element={<Login />}> </Route>
-          <Route path="/" element={<SignUp />}> </Route>
-          <Route path="/home" element={<Home />}> </Route>
+          <Route path="/auth/login" element={<Login />}> </Route>
+          <Route path="/auth/register" element={<SignUp />}> </Route>
+          <Route path="/auth/home" element={<Home />}> </Route>
           <Route path="/games" element={<Games />}> </Route>
 
           <Route

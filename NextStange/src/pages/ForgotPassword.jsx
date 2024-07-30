@@ -38,9 +38,9 @@ export const ForgotPassword = () => {
 
         <div className="center"> 
             <div>
-                <p>já tem uma conta ? <Link to="/login">Entrar</Link></p>
+                <p>já tem uma conta ? <Link to="/auth/login">Entrar</Link></p>
 
-                <p>Não tem uma conta ? <Link to="/"> Cadastre-se</Link></p>
+                <p>Não tem uma conta ? <Link to="/auth/register"> Cadastre-se</Link></p>
 
             
             </div>

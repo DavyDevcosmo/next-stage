@@ -4,7 +4,7 @@ export const NavBar = () => (
     <nav className="flex space-x-4  items-center justify-around
         gap-6">
         <Link
-            to="/home"
+            to="/auth/home"
             className="relative px-2 py-1 text-gray-300 border-b-2 border-transparent
             hover:text-gray-300 hover:border-gray-300 
             before:absolute before:left-0 before:bottom-0 before:w-full before:h-[2px] 
@@ -31,7 +31,7 @@ export const NavBar = () => (
         >
             THE GAME AWARDS
         </Link>
-        <Link to="/home" className="text-black relative px-2 py- border-b-2 border-transparent
+        <Link to="/auth/home" className="text-black relative px-2 py- border-b-2 border-transparent
                 hover:text-blue-700 hover:border-gray-300 
                 before:absolute before:left-0 before:bottom-0 before:w-full before:h-[2px] 
                 before:bg-transparent before:shadow-lg before:shadow-transparent 

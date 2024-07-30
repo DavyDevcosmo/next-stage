@@ -68,14 +68,14 @@ const SignUp = () => {
         setErrors({});
         setShowError(false);
         setShowSuccess(false);
-    
+
         const formErrors = validateForm();
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
             setLoading(false);
             return;
         }
-    
+
         if (step < 3) {
             setStep(step + 1);
             setLoading(false);
@@ -84,13 +84,13 @@ const SignUp = () => {
                 await signUp(email, password);
                 setShowSuccess(true);
                 setLoading(false);
-    
+
                 // Start the timer for success message
                 const interval = setInterval(() => {
                     setTimer(prev => {
                         if (prev <= 0) {
                             clearInterval(interval);
-                            navigate("/home");
+                            navigate("/auth/home");
                         }
                         return prev - 1;
                     });
@@ -99,9 +99,9 @@ const SignUp = () => {
                 // Show error message
                 setErrorMessage(error.message.includes('already exists') ? 'Conta já existente!' : 'Erro ao criar conta.');
                 setShowError(true);
-    
+
                 // Start the timer for error message
-                
+
                 const errorInterval = setInterval(() => {
                     setTimer(prev => {
                         if (prev <= 0) {
@@ -113,7 +113,7 @@ const SignUp = () => {
                         return prev - 1;
                     });
                 }, 50); // decrease timer every 50ms
-    
+
                 setLoading(false);
             }
         }
@@ -124,25 +124,28 @@ const SignUp = () => {
 
     return (
         <section className="relative min-h-screen bg-cover bg-center overflow-hidden" style={{ backgroundImage: `url(${Bg})` }}>
-            {/* Feedback de sucesso */}
-            {showSuccess && <ShowSuccess userName={userName} timer={timer} />}
+           
 
-            {/* Feedback de erro */}
-            {showError && <ShowError errorMessage={errorMessage} timer={timer} />}
-
-            {/* Logo */}
-            <div className="absolute top-6 left-6">
-                <img src={LogoNext} alt="Logo NextStage" className="h-12" />
-            </div>
-
-            {/* Texto de criação de conta */}
-            <div className="absolute bottom-3 left-6">
-                <h1 className="text-left text-slate-50 font-bold text-6xl">CRIAR UMA CONTA</h1>
-            </div>
 
             {/* Formulário */}
             <div className="flex flex-col items-center min-h-screen justify-end overflow-hidden">
-                <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md h-[500px] flex flex-col justify-between ml-auto mr-12 mb-6">
+                <div className="absolute bottom-3 left-6">
+
+                    <h1 className="text-left text-slate-50 font-bold text-6xl">CRIAR UMA CONTA</h1>
+                </div>
+
+                
+                {/* Feedback de erro */}
+                {showError && <ShowError errorMessage={errorMessage} timer={timer} />}
+
+                {/* Logo */}
+                <div className="absolute top-6 left-6">
+                    <img src={LogoNext} alt="Logo NextStage" className="h-12" />
+
+                </div>
+                
+
+                <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md h-[500px] flex flex-col justify-between ml-auto mr-12 mb-6 mt-5">
                     {/* Indicadores de etapa */}
                     <div className="flex justify-center mb-6 space-x-8">
                         {[1, 2, 3].map((item) => (
@@ -239,7 +242,7 @@ const SignUp = () => {
 
                     <div className="mt-4 text-center">
                         <p className="text-sm text-gray-600">
-                            Já possui uma conta? <Link to="/login" className="text-indigo-600 hover:text-indigo-500">Login</Link>
+                            Já possui uma conta? <Link to="/auth/login" className="text-indigo-600 hover:text-indigo-500">Login</Link>
                         </p>
                     </div>
                 </div>

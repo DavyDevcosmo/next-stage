@@ -71,7 +71,7 @@ import { Link } from "react-router-dom";
             <div className="center">
                 <div>
                     <p>
-                        já possui uma conta ? <Link to="/login">Login</Link>
+                        já possui uma conta ? <Link to="/auth/login">Login</Link>
                     </p>
                 </div>
             </div>
