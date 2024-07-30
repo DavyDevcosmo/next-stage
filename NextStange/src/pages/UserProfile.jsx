@@ -13,7 +13,7 @@ const UserProfile = () => {
     async function handleLogout() {
         try {
             await logOut();
-            navigate("/login");
+            navigate("/auth/login");
         } catch (error) {
             alert("Ocorreu um erro ao efetuar o logout");
             console.log(error);

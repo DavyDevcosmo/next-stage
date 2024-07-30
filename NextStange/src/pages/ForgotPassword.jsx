@@ -16,7 +16,7 @@ export const ForgotPassword = () => {
         try {
             await resetPassword(email)
             alert("foi enviado um email para resetar sua senha")
-            navigate("/login")
+            navigate("/auth/login")
         } catch  {
             alert("Ocorreu um erro ao resetar sua senha")
         }

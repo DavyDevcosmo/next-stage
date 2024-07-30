@@ -62,7 +62,7 @@ export const Login = () => {
 
         try {
             await signIn(email, password);
-            navigate("/home");
+            navigate("/auth/home");
         } catch (error) {
             alert("Ocorreu um erro ao fazer login");
             setLoading(false);

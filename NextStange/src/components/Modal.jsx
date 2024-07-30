@@ -176,7 +176,7 @@ return (
 
             <div className="mt-4 text-center">
                 <p className="text-sm text-gray-600">
-                    Já possui uma conta? <Link to="/login" className="text-indigo-600 hover:text-indigo-500">Login</Link>
+                    Já possui uma conta? <Link to="/auth/login" className="text-indigo-600 hover:text-indigo-500">Login</Link>
                 </p>
             </div>
         </div>
